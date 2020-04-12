@@ -1,19 +1,29 @@
 {
-  "name": "task-mate-backend",
-  "version": "1.0.0",
-  "description": "Web application that allows its users to better organize their tasks. Server side.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lcgaravito/task-mate-backend.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lcgaravito/task-mate-backend/issues"
-  },
-  "homepage": "https://github.com/lcgaravito/task-mate-backend#readme"
+    "name": "task-mate-backend",
+    "version": "1.0.0",
+    "description": "Web application that allows its users to better organize their tasks. Server side.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/index",
+        "nodemon": "nodemon src/index"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lcgaravito/task-mate-backend.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lcgaravito/task-mate-backend/issues"
+    },
+    "homepage": "https://github.com/lcgaravito/task-mate-backend#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.9.7"
+    },
+    "devDependencies": {
+        "eslint": "^6.8.0"
+    }
 }
