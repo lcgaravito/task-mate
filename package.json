@@ -1,0 +1,19 @@
+{
+  "name": "task-mate-backend",
+  "version": "1.0.0",
+  "description": "Web application that allows its users to better organize their tasks. Server side.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcgaravito/task-mate-backend.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lcgaravito/task-mate-backend/issues"
+  },
+  "homepage": "https://github.com/lcgaravito/task-mate-backend#readme"
+}
