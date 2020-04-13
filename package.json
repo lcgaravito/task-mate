@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node src/index",
         "nodemon": "nodemon src/index",
-        "heroku-postbuild": "cd client && yarn install && yarn run build"
+        "heroku-postbuild": "cd client && yarn install && yarn build"
     },
     "repository": {
         "type": "git",
