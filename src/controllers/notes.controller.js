@@ -1,11 +1,12 @@
 const notesCtrl = {};
 
-const NoteModel = require('../models/Note');
+const NoteModel = require("../models/Note");
 
 notesCtrl.getNotes = (req, res) => {
     NoteModel.find((err, notes) => {
         res.json(notes);
     });
+    console.log(req);
 };
 
 notesCtrl.createNote = async(req, res) => {
@@ -14,17 +15,17 @@ notesCtrl.createNote = async(req, res) => {
         title,
         content,
         date,
-        author
+        author,
     });
     await newNote.save();
-    res.json({ message: 'Note Saved' });
+    res.json({ message: "Note Saved" });
 };
 
 notesCtrl.getNote = (req, res) => {
     NoteModel.findById(req.params.id, (err, note) => {
         // res.json(note)
         if (err) {
-            res.json({})
+            res.json({});
         } else {
             res.json(note);
         }
@@ -36,17 +37,17 @@ notesCtrl.updateNote = async(req, res) => {
     await NoteModel.findOneAndUpdate({ _id: req.params.id }, {
         title,
         content,
-        author
+        author,
     });
-    res.json({ message: 'Note Updated' });
+    res.json({ message: "Note Updated" });
 };
 
 notesCtrl.deleteNote = (req, res) => {
     NoteModel.findByIdAndDelete(req.params.id, (err) => {
         if (err) {
-            res.json({ message: err })
+            res.json({ message: err });
         } else {
-            res.json({ message: 'Note Deleted' });
+            res.json({ message: "Note Deleted" });
         }
     });
 };
