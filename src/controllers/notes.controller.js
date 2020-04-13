@@ -6,7 +6,6 @@ notesCtrl.getNotes = (req, res) => {
     NoteModel.find((err, notes) => {
         res.json(notes);
     });
-    console.log(req);
 };
 
 notesCtrl.createNote = async(req, res) => {
