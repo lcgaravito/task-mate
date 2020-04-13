@@ -1,0 +1,27 @@
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #00c4cc !important;
+    border-color: #00c4cc;
+}
+
+.btn-danger,
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:visited {
+    background-color: #cc0800 !important;
+    border-color: #cc0800;
+}
+
+.btn-outline-light:hover {
+    background-color: #00c4cc;
+    border-color: #00c4cc;
+    color: white;
+}
+
+.btn-outline-danger:hover {
+    background-color: #cc0800;
+    border-color: #cc0800;
+    color: white;
+}

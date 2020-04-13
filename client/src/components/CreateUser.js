@@ -37,7 +37,7 @@ export default class CreateUser extends Component {
       <div className="row">
         <div className="col-md-4">
           <div className="card card-body">
-            <h3> Create new user </h3>{" "}
+            <h3> Create new user </h3>
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <input
@@ -45,28 +45,27 @@ export default class CreateUser extends Component {
                   className="form-control"
                   value={this.state.username}
                   onChange={this.onChangeUsername}
-                />{" "}
-              </div>{" "}
+                />
+              </div>
               <button type="submit" className="btn btn-primary">
-                Save{" "}
-              </button>{" "}
-            </form>{" "}
-          </div>{" "}
-        </div>{" "}
+                Save
+              </button>
+            </form>
+          </div>
+        </div>
         <div className="col-md-8">
-          <ul className="list-group">
-            {" "}
+          <ul className="list-group mt-4">
             {this.state.users.map((user) => (
               <li
                 className="list-group-item list-group-item-action"
                 key={user._id}
                 onDoubleClick={() => this.deleteUser(user._id)}
               >
-                {user.username}{" "}
+                {user.username}
               </li>
-            ))}{" "}
-          </ul>{" "}
-        </div>{" "}
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }

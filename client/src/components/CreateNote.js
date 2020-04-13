@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from "react-router-dom";
 
 export default class CreateNote extends Component {
   state = {
@@ -45,7 +46,7 @@ export default class CreateNote extends Component {
     } else {
       await axios.post("/api/notes", newNote);
     }
-    this.props.history.push("/");
+    this.props.history.push("/notes");
   };
   onInputChange = (e) => {
     this.setState({
@@ -110,11 +111,16 @@ export default class CreateNote extends Component {
               dateFormat="MMMM d, yyyy h:mm aa"
             />
           </div>
-          <form onSubmit={this.onSubmit}>
-            <button type="submit" className="btn btn-primary">
-              Save Note
-            </button>
-          </form>
+          <div className="d-flex">
+            <form onSubmit={this.onSubmit}>
+              <button type="submit" className="btn btn-primary">
+                Save Note
+              </button>
+            </form>
+            <Link type="button" class="btn btn-outline-danger ml-2" to="/notes">
+              Cancel
+            </Link>
+          </div>
         </div>
       </div>
     );

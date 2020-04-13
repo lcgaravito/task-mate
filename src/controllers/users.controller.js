@@ -17,7 +17,6 @@ usersCtrl.createUser = async(req, res) => {
         await newUser.save();
         res.json({ message: "User Saved" });
     } catch (err) {
-        console.error(err);
         res.json({ message: err.errmsg || "Error" });
     }
 };

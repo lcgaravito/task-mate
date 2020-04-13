@@ -34,7 +34,6 @@ notesCtrl.getNote = (req, res) => {
         }
     });
 };
-
 notesCtrl.updateNote = async(req, res) => {
     const { title, content, author } = req.body;
     await NoteModel.findOneAndUpdate({ _id: req.params.id }, {
