@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default class NotesList extends Component {
   state = {
     notes: [],
+    spinner: true,
   };
   componentDidMount() {
     this.getNotes();
@@ -14,6 +15,7 @@ export default class NotesList extends Component {
     const res = await axios.get("/api/notes");
     this.setState({
       notes: res.data,
+      spinner: false,
     });
   };
   onDeleteClick = async (id) => {
@@ -32,6 +34,15 @@ export default class NotesList extends Component {
             Create a Task!
           </Link>
         </div>
+        {this.state.spinner ? (
+          <div className="d-flex justify-content-center">
+            <div className="spinner-border text-light" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="row">
           {this.state.notes.map((note) => (
             <div className="col-md-4 p-2" key={note._id}>

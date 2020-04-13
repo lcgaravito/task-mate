@@ -117,7 +117,11 @@ export default class CreateNote extends Component {
                 Save Note
               </button>
             </form>
-            <Link type="button" class="btn btn-outline-danger ml-2" to="/notes">
+            <Link
+              type="button"
+              className="btn btn-outline-danger ml-2"
+              to="/notes"
+            >
               Cancel
             </Link>
           </div>
