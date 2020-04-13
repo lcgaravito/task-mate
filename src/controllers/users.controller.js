@@ -13,8 +13,13 @@ usersCtrl.createUser = async(req, res) => {
     const newUser = new UserModel({
         username,
     });
-    await newUser.save();
-    res.json({ message: "User Saved" });
+    try {
+        await newUser.save();
+        res.json({ message: "User Saved" });
+    } catch (err) {
+        console.error(err);
+        res.json({ message: err.errmsg || "Error" });
+    }
 };
 
 usersCtrl.deleteUser = (req, res) => {

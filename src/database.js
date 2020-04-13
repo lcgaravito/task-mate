@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const URI = process.env.MONGODB_URI ?
     process.env.MONGODB_URI :
-    "mongodb://localhost/database-test";
+    "mongodb://localhost/task-mate";
 
 mongoose.connect(URI, {
     useNewUrlParser: true,

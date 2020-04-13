@@ -16,8 +16,12 @@ notesCtrl.createNote = async(req, res) => {
         date,
         author,
     });
-    await newNote.save();
-    res.json({ message: "Note Saved" });
+    try {
+        await newNote.save();
+        res.json({ message: "Note Saved" });
+    } catch (err) {
+        res.json({ message: err._message || "Error" });
+    }
 };
 
 notesCtrl.getNote = (req, res) => {
