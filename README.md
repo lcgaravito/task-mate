@@ -1,3 +1,9 @@
+<!-- Luis Ruiz
+     Comentario general: Me gustó el diseño, mé gustó mucho el fondo de pantalla que usaron. Creo que solo vi una fuente, pero 
+     bien. Por lo que vi, no implementarion passport. Habría sido interesante que uno solo pudiera editar/borrar
+     las notas que uno mismo creó. Me gustó lo que hicieron con los archivos de rutas.
+     Todo estuvo muy claro, excepto que con dos clicks se borra un usuario. --> 
+
 # ☑️ Task Mate
 Web application built with the MERN stack. Allows its users to better organize their tasks.
 <hr>
