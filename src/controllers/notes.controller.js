@@ -2,6 +2,7 @@ const notesCtrl = {};
 
 const mu = require("../db/MongoUtils");
 
+//Se obtienen todas las notas de todos los usuarios no todas las notas del usuario, se podría poner un .id en el req
 notesCtrl.getNotes = (req, res) => {
     mu.getNotes().then((notes) => {
         res.json(notes);
