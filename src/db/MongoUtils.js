@@ -69,6 +69,7 @@ function MongoUtils() {
                 .finally(() => client.close());
         });
 
+    //Todos los usuarios pueden editar notas de otros usuarios, recomiendo quitar esta función
     mu.updateNote = (id, note) =>
         mu.connect().then((client) => {
             const noteCol = client.db(dbTaskMate).collection(noteCollection);
