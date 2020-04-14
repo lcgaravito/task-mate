@@ -1,34 +1,23 @@
 const usersCtrl = {};
 
-const UserModel = require("../models/User");
+const mu = require("../db/MongoUtils");
 
 usersCtrl.getUsers = (req, res) => {
-    UserModel.find((err, users) => {
-        res.json(users);
-    });
+  mu.getUsers().then((users) => {
+    console.log(users);
+    res.json(users);
+  });
 };
 
-usersCtrl.createUser = async(req, res) => {
-    const { username } = req.body;
-    const newUser = new UserModel({
-        username,
-    });
-    try {
-        await newUser.save();
-        res.json({ message: "User Saved" });
-    } catch (err) {
-        res.json({ message: err.errmsg || "Error" });
-    }
+usersCtrl.createUser = async (req, res) => {
+  console.log("params", req.body);
+  const username = { username: req.body };
+  mu.createUser(username).then(res.json({ message: "User Saved" }));
 };
 
 usersCtrl.deleteUser = (req, res) => {
-    UserModel.findByIdAndDelete(req.params.id, (err) => {
-        if (err) {
-            res.json({ message: err });
-        } else {
-            res.json({ message: "User Deleted" });
-        }
-    });
+  mu.deleteUser(req.params.id);
+  res.json({ message: "User Deleted" });
 };
 
 module.exports = usersCtrl;

@@ -18,8 +18,8 @@ export default class CreateNote extends Component {
   componentDidMount = async () => {
     const res = await axios.get("/api/users");
     this.setState({
-      users: res.data.map((user) => user.username),
-      userSelected: res.data[0] ? res.data[0].username : "",
+      users: res.data.map((user) => user.username.username),
+      userSelected: res.data[0] ? res.data[0].username.username : "",
     });
     if (this.props.match.params.id) {
       const res = await axios.get("/api/notes/" + this.props.match.params.id);
@@ -44,6 +44,7 @@ export default class CreateNote extends Component {
     if (this.state.toEdit) {
       await axios.put("/api/notes/" + this.state._id, newNote);
     } else {
+      console.log("New note", newNote);
       await axios.post("/api/notes", newNote);
     }
     this.props.history.push("/notes");

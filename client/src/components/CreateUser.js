@@ -11,6 +11,7 @@ export default class CreateUser extends Component {
   }
   getUsers = async () => {
     const res = await axios.get("/api/users");
+    console.log(res.data);
     this.setState({ users: res.data });
   };
   onChangeUsername = (e) => {
@@ -61,7 +62,7 @@ export default class CreateUser extends Component {
                 key={user._id}
                 onDoubleClick={() => this.deleteUser(user._id)}
               >
-                {user.username}
+                {user.username.username}
               </li>
             ))}
           </ul>
