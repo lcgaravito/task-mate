@@ -9,6 +9,7 @@ const {
   deleteNote,
 } = require("../controllers/notes.controller");
 
+// Luis Ruiz: Si esto hace lo que creo, me parece una gran implementación 
 router.route("/").get(getNotes).post(createNote);
 router.route("/:id").get(getNote).put(updateNote).delete(deleteNote);
 
