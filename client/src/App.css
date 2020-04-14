@@ -5,6 +5,7 @@
     background-color: #00c4cc !important;
     border-color: #00c4cc;
 }
+//NO UTILIZAR !important para las características de css
 
 .btn-danger,
 .btn-danger:hover,
