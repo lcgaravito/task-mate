@@ -2,6 +2,8 @@
 Web application built with the MERN stack. Allows its users to better organize their tasks.
 <hr>
 
+[comment]: <> (El readme debe incluir un mejor paso a paso de cómo correr la aplicación, incluso debe tener una imagen de referecia, los autores y la licencia)
+
 ## Running the App
 The application is divided into two parts:
 
