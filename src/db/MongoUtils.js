@@ -85,6 +85,7 @@ function MongoUtils() {
                 .finally(() => client.close());
         });
 
+    //Todos los usuarios pueden borrar notas de otras personas. Es necesario incluir alguna autenticación, ya que hace a la app un poco díficil de usar :(
     mu.deleteNote = (id) =>
         mu.connect().then((client) => {
             const noteCol = client.db(dbTaskMate).collection(noteCollection);
