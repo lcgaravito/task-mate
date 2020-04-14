@@ -1,5 +1,9 @@
 const notesCtrl = {};
 
+// Luis Ruiz: No se me había ocurrido sacar todo esto del archivo de rutas y ponerlo aparte. 
+// Me parece que le da mucho orden al código. 
+
+
 const mu = require("../db/MongoUtils");
 
 notesCtrl.getNotes = (req, res) => {
