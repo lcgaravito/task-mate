@@ -15,6 +15,7 @@ function MongoUtils() {
         return client.connect();
     };
 
+    //No se deben obtener todos los usuarios en una función pública, es posible que sea una posible vulnerabilidad de seguridad.
     mu.getUsers = (query) =>
         mu.connect().then((client) => {
             const clientCol = client.db(dbTaskMate).collection(clientCollection);
@@ -26,6 +27,7 @@ function MongoUtils() {
                 .finally(() => client.close());
         });
 
+    //No se está utilizando passport para crear los usuarios, solamente se crean en una colección y se obtienen
     mu.createUser = (user) =>
         mu.connect().then((client) => {
             const clientCol = client.db(dbTaskMate).collection(clientCollection);
@@ -42,6 +44,7 @@ function MongoUtils() {
                 .finally(() => client.close());
         });
 
+       //El get notes es público para todos los usuarios, es decir todos los usuarios pueden ver las notas de los otros usuarios
     mu.getNotes = (query) =>
         mu.connect().then((client) => {
             const noteCol = client.db(dbTaskMate).collection(noteCollection);
