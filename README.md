@@ -24,8 +24,17 @@ You also need to run a mongodb database. If you want a cloud database you have t
 
 <hr>
 
+## Image source
+
+Poon Hill, Ghode Pani, Nepal
+
+Photo by Daniel Leone on Unsplash
+
+<hr>
+
 ## Link to the deployed application
 
 <a href="https://task-mate-webapp.herokuapp.com/" target="_blank">Task Mate App</a>
 
 <hr>
+
