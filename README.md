@@ -20,7 +20,7 @@ $ yarn install
 $ yarn start
 ```
 
-You also need to run a mongodb database. If you want a cloud database you have to add the environment variable ```MONGODB_URI=mongodb://admin:link-to-database...``` in the ```.env ``` file.
+You also need to run a mongodb database. If you want a cloud database you have to add the environment variable ```MONGODB_URI=mongodb://link-to-database.../``` in the ```.env ``` file.
 
 <hr>
 
