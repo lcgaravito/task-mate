@@ -9,8 +9,13 @@ usersCtrl.getUsers = (req, res) => {
 };
 
 usersCtrl.createUser = async(req, res) => {
-    const username = { username: req.body };
-    mu.createUser(username).then(res.json({ message: "User Saved" }));
+    const user = {
+        username: req.body.username,
+        password: req.body.password,
+        displayName: req.body.displayName,
+        emails: req.body.emails,
+    };
+    mu.createUser(user).then(res.json({ message: "User Saved" }));
 };
 
 usersCtrl.deleteUser = (req, res) => {

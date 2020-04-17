@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 const MongoClient = require("mongodb").MongoClient;
 const ObjectID = require("mongodb").ObjectID;
-const dbTaskMate = "taskMate";
-const clientCollection = "client";
-const noteCollection = "note";
+const dbTaskMate = "task-mate";
+const clientCollection = "users";
+const noteCollection = "notes";
 
 function MongoUtils() {
     const mu = {};
@@ -23,6 +23,33 @@ function MongoUtils() {
                 .limit(20)
                 .sort({ timestamp: -1 })
                 .toArray()
+                .finally(() => client.close());
+        });
+
+    mu.getUserById = (id, cb) =>
+        mu.connect().then((client) => {
+            const clientCol = client.db(dbTaskMate).collection(clientCollection);
+            clientCol.findOne({ _id: new ObjectID(id) }, (err, doc) => {
+                if (doc) {
+                    cb(null, doc);
+                } else {
+                    cb(new Error("User " + id + " does not exist"));
+                }
+                client.close();
+            });
+        });
+
+    mu.getUserByUsername = (username, cb) =>
+        mu.connect().then((client) => {
+            const clientCol = client.db(dbTaskMate).collection(clientCollection);
+            clientCol
+                .findOne({ username: username }, (err, doc) => {
+                    if (doc) {
+                        return cb(null, doc);
+                    } else {
+                        return cb(null, null);
+                    }
+                })
                 .finally(() => client.close());
         });
 
@@ -78,7 +105,7 @@ function MongoUtils() {
                     $set: {
                         title: note.title,
                         content: note.content,
-                        autor: note.autor,
+                        author: note.author,
                         date: note.date,
                     },
                 }, { upsert: false })

@@ -11,7 +11,6 @@ export default class CreateUser extends Component {
   }
   getUsers = async () => {
     const res = await axios.get("/api/users");
-    console.log(res.data);
     this.setState({ users: res.data });
   };
   onChangeUsername = (e) => {
@@ -21,9 +20,13 @@ export default class CreateUser extends Component {
   };
   onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("/api/users", {
+    const newUser = {
       username: this.state.username,
-    });
+      password: "secret",
+      displayName: "Display Name",
+      emails: [{ value: "name@example.com" }],
+    };
+    await axios.post("/api/users", newUser);
     this.getUsers();
     this.setState({
       username: "",
@@ -62,7 +65,7 @@ export default class CreateUser extends Component {
                 key={user._id}
                 onDoubleClick={() => this.deleteUser(user._id)}
               >
-                {user.username.username}
+                {user.username}
               </li>
             ))}
           </ul>
