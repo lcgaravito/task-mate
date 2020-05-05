@@ -6,17 +6,28 @@ const Login = (props) => {
     <div className="login">
       <div className="card">
         <form action="/passport/login" method="post">
-          <div>
-            <label>Username:</label>
-            <input type="text" name="username" />
-            <br />
+          <div className="form-group">
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              name="username"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              className="form-control"
+              id="password"
+            />
           </div>
           <div>
-            <label>Password:</label>
-            <input type="password" name="password" />
-          </div>
-          <div>
-            <input type="submit" value="Submit" />
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
           </div>
         </form>
       </div>
