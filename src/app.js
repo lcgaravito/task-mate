@@ -26,7 +26,7 @@ configurePassport(app);
 app.use("/api/users", require("./routes/users"));
 app.use("/api/notes", require("./routes/notes"));
 
-app.use("/", passportRouter);
+app.use("/passport", passportRouter);
 
 // Serve any static files
 app.use(express.static(path.join(__dirname, "../client/build")));

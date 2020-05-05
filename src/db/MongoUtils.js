@@ -42,15 +42,15 @@ function MongoUtils() {
     mu.getUserByUsername = (username, cb) =>
         mu.connect().then((client) => {
             const clientCol = client.db(dbTaskMate).collection(clientCollection);
-            clientCol
-                .findOne({ username: username }, (err, doc) => {
-                    if (doc) {
-                        return cb(null, doc);
-                    } else {
-                        return cb(null, null);
-                    }
-                })
-                .finally(() => client.close());
+            clientCol.findOne({ username: username }, (err, doc) => {
+                if (doc) {
+                    client.close();
+                    return cb(null, doc);
+                } else {
+                    client.close();
+                    return cb(null, null);
+                }
+            });
         });
 
     mu.createUser = (user) =>
